@@ -21,18 +21,35 @@ public class Executor implements CommandExecutor {
         
         Player player = null;
         
-        if (sender instanceof Player) {
+        if (sender instanceof Player) 
+        {
+            
             player = (Player) sender;
+        
         }
         else
         {
+            
             System.out.println("[BlockRules] You must be a player to use this command!");
             return true;
+        
         }
         
-        if (args.length == 1) {
+        if (args.length == 1) 
+        {
             
             mainMenu(player);
+            
+        }
+        else if (args.length == 2)
+        {
+        
+            if (args[0].equalsIgnoreCase("help"))
+            {
+                
+                helpMenu(player);
+                
+            }
             
         }
         
@@ -48,7 +65,11 @@ public class Executor implements CommandExecutor {
     public void helpMenu(Player player) {
         
         player.sendMessage(ChatColor.DARK_AQUA + "[BlockRules] " + ChatColor.GREEN + "Below is a list of commands for ops.");
-        player.sendMessage(null);
+        player.sendMessage(ChatColor.DARK_PURPLE + "/br allowplace (block) (world)" + ChatColor.GOLD + " Allows the placing of the block in the world where BlockRules is enabled.");
+        player.sendMessage(ChatColor.DARK_PURPLE + "/br disallowplace (block) (world)" + ChatColor.GOLD + " Removes the block from the whitelist in the world where BlockRules is enabled.");
+        player.sendMessage(ChatColor.DARK_PURPLE + "/br toggle (world)" + ChatColor.GREEN + " If enabled for a world, players won't be able to place/break blocks unless they are whitelisted.");
+        player.sendMessage(ChatColor.DARK_PURPLE + "/br allowbreak (block) (world)" + ChatColor.GREEN + " Allows placing of the block in the world where BlockRules is enabled.");
+        player.sendMessage(ChatColor.DARK_PURPLE + "/br disallowbreak (block) (world)" + ChatColor.GREEN + " Removes the block from the whitelist in a world where BlockRules is enabled.");        
         
     }
     
