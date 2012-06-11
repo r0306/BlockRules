@@ -1,0 +1,51 @@
+name: BlockRules
+main: com.github.r0306.BlockRules.BlockRules
+version: 1.0.0
+commands:
+  br:
+    description: Shows plugin information.
+    usage: /<command>
+  br help:
+    description: Shows plugin help.
+    usage: /<command>
+    aliases: [blockrules, blockrule]
+  br allowplace (block) (world):
+    description: Allows the placing of the block in the world where BlockRules is enabled.
+    usage: /<command>
+    aliases: [blockrules, blockrule]
+  br disallowplace (block) (world):
+    description: Removes the block from the whitelist in the world where BlockRules is enabled.
+    usage: /<command>
+    aliases: [blockrules, blockrule]
+  br toggle (world):
+    description: If enabled for a world, players won't be able to place/break blocks unless they are whitelisted.
+    usage: /<command>
+    aliases: [blockrules, blockrule]
+  br allowbreak (block) (world):
+    description: Allows placing of the block in the world where BlockRules is enabled.
+    usage: /<command>
+    aliases: [blockrules, blockrule]
+  br disallowplace (block) (world):
+    description: Removes the block from the whitelist in a world where BlockRules is enabled.
+    usage: /<command>
+    aliases: [blockrules, blockrule]
+  blockrule:
+    description: Shows plugin information.
+    usage: /<command>
+  blockrules:
+    description: Shows plugin information.
+    usage: /<command>
+permissions:
+    br.*:
+        description: Gives access to all PVP bypasses and AntiRelog commands.
+        children:
+            br.pvpbypass: true
+    br.exempt:
+        description: Players who have this node can bypass all BlockRule restrictions.
+        default: op
+    br.configure:
+        description: Players who have this node can configure the allowed/disallowed blocks.
+        default: op
+    br.toggle:
+        description: Players who have this node can toggle BlockRules for a world.
+        default: op
